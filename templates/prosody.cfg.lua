@@ -178,6 +178,11 @@ VirtualHost "example.com"
 		certificate = "/etc/prosody/certs/example.com.crt";
 	}
 
+{% for virtualhost in prosody_virtualhosts %}
+VirtualHost "{{ virtualhost.name }}"
+        enabled = {{ virtualhost.enabled }}
+{% endfor %}
+
 ------ Components ------
 -- You can specify components to add hosts that provide special services,
 -- like multi-user conferences, and transports.
