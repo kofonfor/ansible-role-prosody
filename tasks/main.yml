@@ -1,0 +1,6 @@
+- name: install prosody
+  apt: name=prosody
+
+- name: put prosody.cfg.lua
+  template: src=prosody.cfg.lua dest=/etc/prosody/prosody.cfg.lua owner=root group=prosody mode=0640 backup=yes
+  notify: restart prosody
